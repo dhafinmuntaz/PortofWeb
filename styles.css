@@ -1489,6 +1489,7 @@ dialog.admin-modal::backdrop {
 }
 /* 11. Supabase admin login */
 .admin-login { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+.admin-login[hidden] { display: none !important; }
 .admin-login__form { width: min(440px, 100%); padding: 32px; background: var(--bg-card); border: 1px solid var(--border-subtle); }
 .admin-login__form h1 { font-family: var(--font-heading); text-transform: uppercase; margin-bottom: 8px; }
 .admin-login__form > p { color: var(--text-muted); margin-bottom: 24px; }
