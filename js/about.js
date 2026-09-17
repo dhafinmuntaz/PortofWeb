@@ -105,10 +105,6 @@
             profile = FALLBACK_PROFILE;
         }
 
-        if (!localStorage.getItem('portofweb_profile')) {
-            localStorage.setItem('portofweb_profile', JSON.stringify(profile));
-        }
-
         renderProfile();
     }
 

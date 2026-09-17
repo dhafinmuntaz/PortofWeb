@@ -143,8 +143,6 @@
             const res = await fetch('data/projects.json?t=' + Date.now());
             if (res.ok) {
                 projects = await res.json();
-                localStorage.setItem('portofweb_projects', JSON.stringify(projects));
-                localStorage.setItem('portofweb_projects_version', PROJECT_DATA_VERSION);
                 renderAll();
                 return;
             }
@@ -153,8 +151,6 @@
         }
 
         projects = FALLBACK_PROJECTS;
-        localStorage.setItem('portofweb_projects', JSON.stringify(projects));
-        localStorage.setItem('portofweb_projects_version', PROJECT_DATA_VERSION);
         renderAll();
     }
 
