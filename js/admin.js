@@ -88,7 +88,7 @@
                     <span style="color: var(--accent); font-size: 0.65rem;">Spine: ${escapeHtml(proj.spine || '—')}</span>
                 </td>
                 <td style="text-align: center;">
-                    <button type="button" class="btn-admin-action ${isKinetic ? 'primary' : ''}" data-action="toggle-kinetic" data-id="${escapeHtml(proj.id)}" title="${isKinetic ? 'Featured in Kinetic Reel (click to remove)' : 'Click to feature in Kinetic Reel (max 5)'}" style="font-size: 0.68rem; padding: 4px 8px; min-width: 64px;">
+                    <button type="button" class="btn-admin-action ${isKinetic ? 'primary' : ''}" data-action="toggle-kinetic" data-id="${escapeHtml(proj.id)}" title="${isKinetic ? 'Featured in Kinetic Reel (click to remove)' : 'Click to feature in Kinetic Reel (max 7)'}" style="font-size: 0.68rem; padding: 4px 8px; min-width: 64px;">
                         ${isKinetic ? '★ Reel' : '+ Add'}
                     </button>
                 </td>
@@ -126,14 +126,14 @@
                     const proj = projects.find(p => p.id === id);
                     if (!proj) return;
                     const currentlyActive = projects.filter(p => p.inKinetic && p.id !== id).length;
-                    if (!proj.inKinetic && currentlyActive >= 5) {
-                        showToast('Maximum 5 projects allowed in Kinetic Reel! Uncheck another project first.');
+                    if (!proj.inKinetic && currentlyActive >= 7) {
+                        showToast('Maximum 7 projects allowed in Kinetic Reel! Uncheck another project first.');
                         return;
                     }
                     proj.inKinetic = !proj.inKinetic;
                     saveToLocal();
                     renderProjectsTable();
-                    showToast(proj.inKinetic ? `"${proj.title}" added to Kinetic Reel (5 selected)` : `"${proj.title}" removed from Kinetic Reel`);
+                    showToast(proj.inKinetic ? `"${proj.title}" added to Kinetic Reel (7 selected)` : `"${proj.title}" removed from Kinetic Reel`);
                 } else if (action === 'delete') {
                     if (confirm('Are you sure you want to delete this project?')) {
                         projects = projects.filter(p => p.id !== id);
@@ -264,8 +264,8 @@
 
             if (inKinetic) {
                 const otherActive = projects.filter(p => p.inKinetic && p.id !== editId).length;
-                if (otherActive >= 5) {
-                    showToast('Maximum 5 projects allowed in Kinetic Reel! Uncheck another project first.');
+                if (otherActive >= 7) {
+                    showToast('Maximum 7 projects allowed in Kinetic Reel! Uncheck another project first.');
                     return;
                 }
             }

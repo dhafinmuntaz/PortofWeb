@@ -174,7 +174,7 @@
     });
 
     /**
-     * Render the kinetic horizontal panels (Only the 5 selected projects from admin console)
+     * Render the kinetic horizontal panels (up to 7 selected projects from admin console)
      */
     function renderKineticTrack() {
         if (!trackEl) return;
@@ -183,9 +183,9 @@
         // Only show up to 5 projects marked from Admin console (or first 5 as fallback)
         let kineticProjects = projects.filter(p => p.inKinetic);
         if (kineticProjects.length === 0) {
-            kineticProjects = projects.slice(0, 5);
-        } else if (kineticProjects.length > 5) {
-            kineticProjects = kineticProjects.slice(0, 5);
+            kineticProjects = projects.slice(0, 7);
+        } else if (kineticProjects.length > 7) {
+            kineticProjects = kineticProjects.slice(0, 7);
         }
 
         const total = kineticProjects.length;
