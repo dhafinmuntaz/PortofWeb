@@ -512,6 +512,7 @@
         const loginError = document.getElementById('loginError');
         const loginEmail = document.getElementById('loginEmail');
         const loginPassword = document.getElementById('loginPassword');
+        const loginSubmit = loginForm.querySelector('[type="submit"]');
         const openCms = async () => {
             loginScreen.hidden = true;
             adminApp.hidden = false;
@@ -530,11 +531,18 @@
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             loginError.textContent = '';
+            loginSubmit.disabled = true;
+            loginSubmit.textContent = 'Signing in...';
             try {
                 await window.portofwebDb.signIn(loginEmail.value, loginPassword.value);
                 await openCms();
             } catch (error) {
-                loginError.textContent = error.message;
+                loginError.textContent = /email not confirmed/i.test(error.message)
+                    ? 'Confirm your Supabase account email, then sign in again.'
+                    : error.message;
+            } finally {
+                loginSubmit.disabled = false;
+                loginSubmit.textContent = 'Sign In';
             }
         });
     });
