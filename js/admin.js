@@ -513,10 +513,32 @@
         const loginEmail = document.getElementById('loginEmail');
         const loginPassword = document.getElementById('loginPassword');
         const loginSubmit = loginForm.querySelector('[type="submit"]');
+        const IDLE_TIMEOUT_MS = 5 * 60 * 1000;
+        let idleTimer;
+        let cmsActive = false;
+        const endCmsSession = async () => {
+            cmsActive = false;
+            clearTimeout(idleTimer);
+            adminApp.hidden = true;
+            loginScreen.hidden = false;
+            loginPassword.value = '';
+            loginError.textContent = 'Signed out after 5 minutes of inactivity.';
+            await window.portofwebDb.signOut();
+        };
+        const resetIdleTimer = () => {
+            if (!cmsActive) return;
+            clearTimeout(idleTimer);
+            idleTimer = setTimeout(endCmsSession, IDLE_TIMEOUT_MS);
+        };
+        ['pointerdown', 'keydown', 'input', 'change', 'scroll'].forEach(eventName => {
+            adminApp.addEventListener(eventName, resetIdleTimer, { passive: eventName === 'scroll' });
+        });
         const openCms = async () => {
             loginScreen.hidden = true;
             adminApp.hidden = false;
             await initData();
+            cmsActive = true;
+            resetIdleTimer();
         };
         if (!window.portofwebDb.enabled) {
             loginScreen.hidden = false;
