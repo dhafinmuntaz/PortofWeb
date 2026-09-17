@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <meta name="description" content="Biography, design philosophy, credentials, and services of architect & interior designer Kaelen Vane.">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="editorial-page">
+
+    <!-- Global Header -->
+    <header class="global-header">
+        <a href="index.html" class="logo">
+            MNTS<span>&mdash;</span>DSGN
+            <span class="logo-sub">Architecture &amp; Interior Design</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="siteNav">
+            <a href="index.html">Gallery</a>
+            <a href="about.html" class="active">About Detail</a>
+            <a href="#contact">Contact</a>
+            <a href="admin.html" class="badge-admin">Admin CMS</a>
+        </nav>
+    </header>
+
+    <div class="editorial-container">
+
+        <!-- Architect Profile Hero -->
+        <section class="about-hero" aria-label="Architect Profile">
+            <div>
+                <span class="about-hero__label">Principal &bull; Studio Profile</span>
+                <h1 class="about-hero__headline" id="profileName">Kaelen Vane</h1>
+                <p class="about-hero__bio" id="profileBio">
+                    Registered architect and interior designer practicing at the intersection of raw material tectonic architecture and atmospheric interior spaces. Investigating how light, volume, and restrained palettes transform residential and commercial sanctuaries into meditative environments.
+                </p>
+
+                <div class="about-hero__stats">
+                    <div>
+                        <span class="stat-num" id="statExp">12+</span>
+                        <span class="stat-label">Years Practice</span>
+                    </div>
+                    <div>
+                        <span class="stat-num" id="statProj">38+</span>
+                        <span class="stat-label">Completed Works</span>
+                    </div>
+                    <div>
+                        <span class="stat-num" id="statAward">7</span>
+                        <span class="stat-label">Design Honors</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-hero__portrait">
+                <img src="images/tm-620-com-01.jpg" alt="Architectural study &mdash; Brutalist form">
+                <div class="about-hero__portrait-caption">
+                    Studio Tectonic Study &bull; Berlin &mdash; Tokyo
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Philosophy -->
+        <section aria-labelledby="headingPhilosophy">
+            <h2 class="section-title" id="headingPhilosophy">Architectural Manifesto</h2>
+            <div class="philosophy-grid" id="philosophyContainer">
+                <!-- Dynamically loaded from profile.json -->
+            </div>
+        </section>
+
+        <!-- Practice & Services -->
+        <section aria-labelledby="headingServices">
+            <h2 class="section-title" id="headingServices">Practice &amp; Disciplines</h2>
+            <div class="services-grid" id="servicesContainer">
+                <!-- Dynamically loaded from profile.json -->
+            </div>
+        </section>
+
+        <!-- Technical Toolkit -->
+        <section aria-labelledby="headingToolkit">
+            <h2 class="section-title" id="headingToolkit">Computational &amp; BIM Toolkit</h2>
+            <div class="toolkit-cloud" id="toolkitContainer">
+                <!-- Dynamically loaded from profile.json -->
+            </div>
+        </section>
+
+        <!-- Credentials -->
+        <section aria-labelledby="headingCredentials">
+            <h2 class="section-title" id="headingCredentials">Honors &amp; Registration</h2>
+            <div class="credentials-list" id="credentialsContainer">
+                <!-- Dynamically loaded from profile.json -->
+            </div>
+        </section>
+
+        <!-- Consultation & Contact -->
+        <section id="contact" aria-labelledby="headingContact">
+            <h2 class="section-title" id="headingContact">Inquire &amp; Collaborate</h2>
+            <div class="contact-layout">
+                <div class="contact-info-block">
+                    <h3>Commission a Project</h3>
+                    <p>
+                        We accept a limited number of private residential commissions, commercial flagship spaces, and cultural pavilions each calendar year.
+                    </p>
+                    <div class="contact-coords">
+                        <div class="contact-coord-item">
+                            <strong>Direct Studio Inquiries</strong>
+                            <a href="mailto:kaelen@vanearch.com" id="contactEmail">kaelen@vanearch.com</a>
+                        </div>
+                        <div class="contact-coord-item">
+                            <strong>Telephone</strong>
+                            <a href="tel:+12125550194" id="contactPhone">+1 (212) 555-0194</a>
+                        </div>
+                        <div class="contact-coord-item">
+                            <strong>Studio Locations</strong>
+                            <span id="contactOffice">New York / Tokyo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="arch-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="clientName">Your Name / Organization</label>
+                        <input type="text" id="clientName" class="form-input" placeholder="e.g. Voss &amp; Klein Partners" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientEmail">Email Address</label>
+                        <input type="email" id="clientEmail" class="form-input" placeholder="client@domain.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectType">Project Typology</label>
+                        <select id="projectType" class="form-select">
+                            <option value="Residential Architecture">Residential Architecture / Villa</option>
+                            <option value="Interior Architecture">Bespoke Interior Architecture</option>
+                            <option value="Commercial / Hospitality">Commercial / Boutique Hospitality</option>
+                            <option value="Adaptive Reuse">Adaptive Reuse &amp; Renovation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectScope">Project Brief &amp; Location</label>
+                        <textarea id="projectScope" class="form-textarea" rows="4" placeholder="Brief outline of site, square meterage, desired timeline..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-btn-submit">Submit Inquiry &rarr;</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="global-footer" style="position: static; margin-top: 60px;">
+        <p class="footer__credit">MNTS DSGN &copy; 2026 &bull; All Rights Reserved</p>
+        <p class="footer__scroll-hint"><a href="index.html" style="color: inherit; text-decoration: none;">Return to Gallery &uarr;</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/about.js"></script>
+</body>
+</html>

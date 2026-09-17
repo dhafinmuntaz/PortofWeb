@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <meta name="description" content="Manage portfolio projects and profile details.">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+    <main class="admin-login" id="loginScreen" hidden>
+        <form class="arch-form admin-login__form" id="loginForm">
+            <h1>Admin Login</h1>
+            <p>Sign in with your Supabase admin account.</p>
+            <div class="form-group"><label for="loginEmail">Email</label><input class="form-input" id="loginEmail" type="email" required></div>
+            <div class="form-group"><label for="loginPassword">Password</label><input class="form-input" id="loginPassword" type="password" required></div>
+            <p id="loginError" class="admin-login__error" aria-live="polite"></p>
+            <button class="btn-admin-action primary" type="submit">Sign In</button>
+        </form>
+    </main>
+    <div id="adminApp" hidden>
+
+    <!-- Global Header -->
+    <header class="global-header">
+        <a href="index.html" class="logo">
+            MNTS<span>&mdash;</span>DSGN
+            <span class="logo-sub">CMS Dashboard &bull; Content Manager</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="siteNav">
+            <a href="index.html">Gallery</a>
+            <a href="about.html">About Detail</a>
+            <a href="admin.html" class="active">Admin CMS</a>
+        </nav>
+    </header>
+
+    <div class="admin-header-bar">
+        <div class="admin-title-wrap">
+            <h1>Site Administration</h1>
+            <p>Directly update website projects and profile credentials.</p>
+        </div>
+        <div class="admin-quick-actions">
+            <button type="button" class="btn-admin-action primary" id="btnSaveAll">Save Changes</button>
+            <button type="button" class="btn-admin-action" id="btnSyncImages" title="Sync projects with images/Project folder">&#x21bb; Sync Images Folder</button>
+            <button type="button" class="btn-admin-action" id="btnExportJson">Export JSON Files</button>
+            <label class="btn-admin-action" style="cursor: pointer;">
+                Import JSON <input type="file" id="importJsonInput" accept=".json" style="display: none;">
+            </label>
+            <button type="button" class="btn-admin-action danger" id="btnResetData">Reset Defaults</button>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="admin-tabs-nav">
+        <button type="button" class="admin-tab-btn active" data-tab="tabProjects">Projects Manager (<span id="projectCount">0</span>)</button>
+        <button type="button" class="admin-tab-btn" data-tab="tabProfile">About Profile Editor</button>
+    </div>
+
+    <!-- Tab 1: Projects Manager -->
+    <section class="admin-tab-pane active" id="tabProjects">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+            <div>
+                <p style="font-size: 0.75rem; color: var(--text-muted);">Manage architecture and interior design projects displayed on the gallery and kinetic reel.</p>
+                <p style="font-size: 0.72rem; color: var(--accent); margin-top: 4px; font-family: var(--font-mono); letter-spacing: 0.05em;">
+                    Kinetic Reel: <strong id="kineticSelectedCount">0</strong> / 5 selected
+                </p>
+            </div>
+            <button type="button" class="btn-admin-action primary" id="btnAddNewProject">+ Add New Project</button>
+        </div>
+
+        <table class="admin-project-table">
+            <thead>
+                <tr>
+                    <th style="width: 70px;">Cover</th>
+                    <th>Project Title &amp; Spine</th>
+                    <th style="text-align: center; width: 85px;" title="Selected for Kinetic Reel Showcase (Max 5)">Kinetic (5)</th>
+                    <th>Category</th>
+                    <th>Typology</th>
+                    <th>Year / Location</th>
+                    <th>Reorder</th>
+                    <th style="text-align: right;">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="adminProjectList">
+                <!-- Injected via js/admin.js -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Tab 2: Profile Editor -->
+    <section class="admin-tab-pane" id="tabProfile">
+        <form class="arch-form" id="profileForm" style="max-width: 900px; background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 36px;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; text-transform: uppercase; margin-bottom: 20px;">Principal Architect Profile</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label for="profName">Architect / Designer Name</label>
+                    <input type="text" id="profName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="profTitle">Professional Title</label>
+                    <input type="text" id="profTitle" class="form-input" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="profTagline">Architectural Tagline</label>
+                <input type="text" id="profTagline" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="profBio">Editorial Biography</label>
+                <textarea id="profBio" class="form-textarea" rows="4" required></textarea>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div class="form-group">
+                    <label for="profExp">Years in Practice</label>
+                    <input type="number" id="profExp" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="profProjects">Completed Projects</label>
+                    <input type="number" id="profProjects" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="profAwards">Design Honors</label>
+                    <input type="number" id="profAwards" class="form-input">
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label for="profEmail">Public Email</label>
+                    <input type="email" id="profEmail" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="profPhone">Telephone</label>
+                    <input type="text" id="profPhone" class="form-input">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="profOffice">Studio Locations</label>
+                <input type="text" id="profOffice" class="form-input">
+            </div>
+
+            <button type="submit" class="btn-admin-action primary" style="align-self: flex-start; margin-top: 10px;">Update Profile Information</button>
+        </form>
+    </section>
+
+    <!-- Modal Dialog: Add / Edit Project -->
+    <dialog class="admin-modal" id="projectModal" closedby="any" aria-label="Project Editor">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px;">
+            <h3 id="modalProjectTitle" style="font-family: var(--font-heading); font-size: 1.8rem; text-transform: uppercase;">Add New Project</h3>
+            <button type="button" class="btn-admin-action" id="btnCloseProjectModal" style="padding: 6px 12px;">&times;</button>
+        </div>
+
+        <form class="arch-form" id="projectEditForm">
+            <input type="hidden" id="editProjectId">
+
+            <div class="form-group" style="background: rgba(223, 255, 0, 0.05); border: 1px solid rgba(223, 255, 0, 0.2); padding: 12px 14px; margin-bottom: 4px;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--off-white); font-size: 0.8rem; text-transform: none; letter-spacing: 0;">
+                    <input type="checkbox" id="fInKinetic" style="width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer;">
+                    <span>Feature in <strong>Kinetic Reel Showcase</strong> (Max 5 projects)</span>
+                </label>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px;">
+                <div class="form-group">
+                    <label for="fTitle">Full Project Title *</label>
+                    <input type="text" id="fTitle" class="form-input" placeholder="e.g. Monolith Tower" required>
+                </div>
+                <div class="form-group">
+                    <label for="fSpine">Spine Short Title (1 word) *</label>
+                    <input type="text" id="fSpine" class="form-input" placeholder="e.g. Monolith" required>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                    <label for="fCategory">Discipline Category *</label>
+                    <select id="fCategory" class="form-select">
+                        <option value="Architecture">Architecture</option>
+                        <option value="Interior Design">Interior Design</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fType">Typology</label>
+                    <input type="text" id="fType" class="form-input" placeholder="e.g. Residential Villa">
+                </div>
+                <div class="form-group">
+                    <label for="fYear">Year *</label>
+                    <input type="text" id="fYear" class="form-input" placeholder="e.g. 2026" required>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                    <label for="fLocation">Location (City, Country)</label>
+                    <input type="text" id="fLocation" class="form-input" placeholder="e.g. Kyoto, Japan">
+                </div>
+                <div class="form-group">
+                    <label for="fArea">Gross Area</label>
+                    <input type="text" id="fArea" class="form-input" placeholder="e.g. 450 sqm">
+                </div>
+                <div class="form-group">
+                    <label for="fClient">Client</label>
+                    <input type="text" id="fClient" class="form-input" placeholder="e.g. Private Client">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fMaterials">Primary Architectural Materials</label>
+                <input type="text" id="fMaterials" class="form-input" placeholder="e.g. Board-formed concrete, darkened glass, basalt">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                    <label for="fCoverImage">Cover Image Path / URL *</label>
+                    <input type="text" id="fCoverImage" class="form-input" placeholder="images/Project/Cesarino Puri/Cesarino Puri (1).png" required>
+                </div>
+                <div class="form-group">
+                    <label for="fGalleryImages">Additional Gallery Images (comma separated)</label>
+                    <input type="text" id="fGalleryImages" class="form-input" placeholder="images/Project/Cesarino Puri/Cesarino Puri (2).png, images/Project/Cesarino Puri/Cesarino Puri (3).png">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fDescription">Project Summary Statement (1-2 sentences) *</label>
+                <textarea id="fDescription" class="form-textarea" rows="2" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="fDetails">Spatial &amp; Tectonic Details</label>
+                <textarea id="fDetails" class="form-textarea" rows="3"></textarea>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 16px;">
+                <button type="button" class="btn-admin-action" id="btnCancelModal">Cancel</button>
+                <button type="submit" class="btn-admin-action primary">Save Project</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Toast Notification -->
+    <div class="toast-msg" id="adminToast">Changes saved successfully</div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

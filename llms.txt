@@ -1,0 +1,36 @@
+# Portfolio Architecture & Data Contract
+> Standard machine-readable context for Local LLMs (Ollama, LM Studio, vLLM, Cursor). Token budget: < 150 tokens.
+
+## System Architecture
+This portfolio decouples content from presentation:
+- `data/projects.json`: Array of project objects for the main gallery and kinetic reel.
+- `data/profile.json`: Architect & interior designer profile, philosophy, services, and credentials.
+- `index.html`: Gallery UI (Kinetic Reel + Filterable Grid) rendering `data/projects.json`.
+- `about.html`: Editorial page rendering `data/profile.json`.
+- `admin.html`: In-browser CMS for editing projects and profile.
+
+## Project Schema (`data/projects.json`)
+```json
+{
+  "id": "proj-xx",
+  "slug": "kebab-case-title",
+  "title": "Full Project Title",
+  "spine": "Short Single Word Title",
+  "category": "Architecture | Interior Design",
+  "type": "Residential | Commercial | Cultural | Hospitality",
+  "year": "YYYY",
+  "client": "Client Name",
+  "role": "Lead Architect | Interior Designer",
+  "location": "City, Country",
+  "area": "XXX sqm",
+  "materials": "Comma-separated key materials",
+  "coverImage": "images/tm-620-com-xx.jpg",
+  "galleryImages": ["path1", "path2"],
+  "description": "1-2 sentence core architectural summary",
+  "details": "1-2 sentences on spatial layout, lighting, or structural innovation"
+}
+```
+
+## Local LLM Instruction Rule
+When adding or updating content, DO NOT modify HTML files. Only output or update the minimal JSON object according to the schema above.
+

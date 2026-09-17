@@ -1,0 +1,28 @@
+# LOCAL LLM CODING RULES & CONTEXT
+> Purpose: Minimizes context token usage by 80-90% when coding or editing this website with local LLMs (Ollama, LM Studio, Cursor, Continue, Aider).
+
+## 1. Project Directory Map (Read this instead of scanning folders)
+- `index.html`: Main gallery UI (Kinetic Reel + Filterable Grid).
+- `about.html`: Editorial "About Me" page for the architect.
+- `admin.html`: In-browser CMS for editing projects and profile.
+- `styles.css`: Single unified stylesheet. Numbered sections 1 to 10.
+- `js/app.js`: Main gallery rendering, kinetic track, grid filtering, `<dialog>` modal.
+- `js/about.js`: Dynamic profile & philosophy loader for about.html.
+- `js/admin.js`: Project CRUD, profile editor, JSON export/import.
+- `data/projects.json`: Array of architectural projects.
+- `data/profile.json`: Architect profile, philosophy, credentials.
+- `server.py`: Zero-dependency Python server with `/api/save-*` disk sync.
+
+## 2. Token Conservation Rules for Coding
+1. **Never Output Entire Files**: When asked to modify a file, only output the specific function, CSS rule, or HTML chunk being edited.
+2. **Target File Isolation**:
+   - To change styling, edit ONLY `styles.css`.
+   - To change gallery behavior, edit ONLY `js/app.js`.
+   - To change project fields or content, edit ONLY `data/projects.json`.
+3. **Styles Guide (`styles.css`)**:
+   - Do NOT add inline styles to HTML.
+   - Use CSS variables defined in `:root` (`--accent`, `--carbon`, `--off-white`, `--border-subtle`, `--font-heading`, `--font-mono`).
+   - The header navbar is styled in Section 3 (`.global-header`, `.nav`, `.nav a`).
+4. **JavaScript Conventions**:
+   - Vanilla ES6+, no external libraries, encapsulated in IIFEs `(function () { 'use strict'; ... })();`.
+   - Always escape dynamic data using the built-in `escapeHtml(str)` helper.
