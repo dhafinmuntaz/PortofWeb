@@ -1,78 +1,95 @@
 {
-  "name": "Kaelen Vane",
+  "name": "Dhafin Muntaz Rizqullah",
   "studioName": "MNTS DSGN",
-  "title": "Architect & Interior Designer",
-  "tagline": "Spatial reduction, structural honesty, and atmospheric architecture.",
-  "location": "Tokyo & New York",
-  "yearsExperience": 12,
-  "completedProjects": 38,
-  "awardsCount": 7,
-  "bio": "I am a registered architect and interior designer practicing at the intersection of raw material tectonic architecture and atmospheric interior spaces. My work investigates how light, spatial volume, and restrained material palettes can transform residential and commercial sanctuaries into meditative, functional environments.",
+  "title": "Junior Architect · Site Supervisor · Project Coordinator",
+  "tagline": "Architect and project coordinator with more than four years of professional experience in drafting, BIM modeling, 3D visualization, retail design, and end-to-end project coordination.",
+  "location": "Jakarta, Indonesia",
+  "yearsExperience": 4,
+  "completedProjects": 32,
+  "awardsCount": 3,
+  "bio": "I work across architecture, interior, and retail projects, from technical drawings and 3D visualization to site coordination and project development. My experience covers both design and execution, with a focus on practical solutions, clear documentation, and delivering projects to site.",
   "philosophy": [
     {
-      "pillar": "01. Material Authenticity",
-      "statement": "Raw concrete, charred timber, natural stone, and unadorned metals are celebrated for their intrinsic texture, weight, and graceful aging rather than concealed behind superficial veneers."
+      "pillar": "01. Practical Solutions & Clear Documentation",
+      "statement": "Bridging architectural design intent with constructible site execution through meticulous technical drawings, comprehensive BOQ/RAB specifications, and precise construction documentation."
     },
     {
-      "pillar": "02. Spatial Compression & Release",
-      "statement": "Manipulating vertical proportions and threshold transitions to create emotional resonance—tightening entryways to amplify the dramatic expanse of sunlit living volumes."
+      "pillar": "02. End-to-End Project Coordination",
+      "statement": "Ensuring smooth delivery across 50+ retail, commercial, and residential projects by orchestrating site surveys, landlord compliance, MEP alignment, and proactive vendor management."
     },
     {
-      "pillar": "03. Light as Matter",
-      "statement": "Natural light is treated not merely as illumination, but as an active sculptural medium that activates surfaces and articulates the passage of time."
+      "pillar": "03. Immersive 3D Visualization & BIM",
+      "statement": "Leveraging BIM workflows, realistic 3D renderings, and lighting studies to evaluate spatial volumes, validate materials, and communicate design concepts effectively to clients and stakeholders."
     }
   ],
   "services": [
     {
-      "name": "Architectural Design",
-      "description": "Concept design, spatial planning, facade articulation, and full schematic development for residential villas, cultural pavilions, and boutique commercial buildings."
+      "name": "Architecture & Spatial Design",
+      "description": "Concept development, spatial massing, floor planning, facade articulation, and complete drawing sets for residential, educational, and commercial facilities."
     },
     {
-      "name": "Interior Architecture",
-      "description": "Comprehensive interior environments, custom acoustic millwork, monolithic kitchen & bath design, and bespoke furniture curation."
+      "name": "Retail & F&B Environments",
+      "description": "End-to-end retail kiosk and outlet design-and-build, brand interior rollouts, modular joinery detailing, and international remote project coordination."
     },
     {
-      "name": "Lighting & Atmospheric Studies",
-      "description": "Circadian lighting analysis, indirect luminaire detailing, and daylight shadow simulation to harmonize interior volumes."
+      "name": "3D Architectural Visualization",
+      "description": "High-fidelity 3D modeling, photorealistic exterior and interior renderings, material texturing, and presentation animations using Lumion and Chaos Enscape."
     },
     {
-      "name": "Adaptive Reuse & Renovation",
-      "description": "Surgical interventions within historic and industrial structures, breathing contemporary life into aged masonry and heavy timber frames."
+      "name": "Site Supervision & Coordination",
+      "description": "On-site surveys, landlord and mall management compliance, MEP coordination, progress monitoring, and cost-effective vendor management."
     }
   ],
   "toolkit": [
-    "Revit (BIM)",
-    "Rhino 8 + Grasshopper",
     "AutoCAD",
-    "3ds Max + V-Ray",
-    "Enscape 3D",
-    "SketchUp Pro",
+    "Google SketchUp",
+    "Lumion",
+    "Archicad",
+    "Chaos Enscape",
     "Adobe Creative Cloud",
-    "Twinmotion"
+    "BOQ / RAB",
+    "Revit (BIM)"
   ],
   "credentials": [
     {
-      "year": "2024",
-      "title": "AIA International Design Excellence Award — Residential Category"
+      "year": "2023 — Present",
+      "title": "Project Coordinator & Designer — Sour Sally Group (50+ outlets, 3 international projects)"
+    },
+    {
+      "year": "2023",
+      "title": "Bachelor of Architecture — Institut Teknologi Nasional (Itenas), Bandung (GPA 3.31 / 4.00)"
+    },
+    {
+      "year": "2023",
+      "title": "Construction Expert Training — Bina Utama"
     },
     {
       "year": "2022",
-      "title": "IIDA Interior Architecture Best in Show — Atelier Noir"
+      "title": "Building Information Modeling 101 — Autodesk Authorized Academic Partner"
     },
     {
-      "year": "2019",
-      "title": "Master of Architecture (M.Arch), GSD"
+      "year": "2021 — 2023",
+      "title": "Freelance Architect — Jabodetabek & West Java (Design concepts, drawing sets & realistic 3D renderings)"
     },
     {
-      "year": "2016",
-      "title": "Bachelor of Fine Arts (Interior Architecture)"
+      "year": "2021 — 2022",
+      "title": "Drafter & Maintenance Coordinator — Akso Studio Design and Build, Bandung"
+    },
+    {
+      "year": "2021",
+      "title": "Junior Architect Intern — CV Cipta Bina Sarana, Bandung"
+    },
+    {
+      "year": "2020",
+      "title": "Archicad 22 & SketchUp for Architecture Certified — Itenas BIMCoE"
     }
   ],
   "contact": {
-    "email": "kaelen@vanearch.com",
-    "phone": "+1 (212) 555-0194",
-    "office": "48 Mercer Street, New York, NY 10013 / 3-12-8 Aoyama, Minato-ku, Tokyo",
-    "instagram": "@vane.architecture",
-    "linkedin": "linkedin.com/in/kaelen-vane"
+    "email": "muntazrizqullah@gmail.com",
+    "phone": "+62 878 3380 4321",
+    "office": "Jakarta, Indonesia",
+    "instagram": "@mnts.dsgn",
+    "linkedin": "linkedin.com/in/dhafinmuntaz",
+    "website": "dhafinmuntaz.github.io/PortofWeb"
   }
 }

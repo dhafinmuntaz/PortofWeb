@@ -19,6 +19,7 @@
     const profileForm = document.getElementById('profileForm');
     const adminToast = document.getElementById('adminToast');
     const btnSaveAll = document.getElementById('btnSaveAll');
+    const btnLogout = document.getElementById('btnLogout');
     const btnSyncImages = document.getElementById('btnSyncImages');
     const btnExportJson = document.getElementById('btnExportJson');
     const importJsonInput = document.getElementById('importJsonInput');
@@ -516,13 +517,13 @@
         const IDLE_TIMEOUT_MS = 5 * 60 * 1000;
         let idleTimer;
         let cmsActive = false;
-        const endCmsSession = async () => {
+        const endCmsSession = async (message = 'Signed out after 5 minutes of inactivity.') => {
             cmsActive = false;
             clearTimeout(idleTimer);
             adminApp.hidden = true;
             loginScreen.hidden = false;
             loginPassword.value = '';
-            loginError.textContent = 'Signed out after 5 minutes of inactivity.';
+            loginError.textContent = message;
             await window.portofwebDb.signOut();
         };
         const resetIdleTimer = () => {
@@ -549,6 +550,16 @@
             await openCms();
         } else {
             loginScreen.hidden = false;
+        }
+        if (btnLogout) {
+            btnLogout.addEventListener('click', async () => {
+                btnLogout.disabled = true;
+                try {
+                    await endCmsSession('');
+                } finally {
+                    btnLogout.disabled = false;
+                }
+            });
         }
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault();
