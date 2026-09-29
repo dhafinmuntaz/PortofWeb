@@ -87,7 +87,7 @@
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>
-                    <img src="${escapeHtml(proj.coverImage)}" alt="Thumb" class="admin-thumb" onerror="this.src='images/tm-620-com-01.jpg'">
+                    <img src="${escapeHtml(proj.coverImage)}" alt="Thumb" class="admin-thumb" onerror="this.src='images/PI.png'">
                 </td>
                 <td>
                     <strong style="color: var(--off-white); font-size: 0.85rem;">${escapeHtml(proj.title)}</strong><br>
@@ -174,6 +174,7 @@
         document.getElementById('profName').value = profile.name || '';
         document.getElementById('profTitle').value = profile.title || '';
         document.getElementById('profTagline').value = profile.tagline || '';
+        document.getElementById('profPortrait').value = profile.portrait || 'images/PI.png';
         document.getElementById('profBio').value = profile.bio || '';
         document.getElementById('profExp').value = profile.yearsExperience || 0;
         document.getElementById('profProjects').value = profile.completedProjects || 0;
@@ -192,6 +193,7 @@
             profile.name = document.getElementById('profName').value;
             profile.title = document.getElementById('profTitle').value;
             profile.tagline = document.getElementById('profTagline').value;
+            profile.portrait = document.getElementById('profPortrait').value.trim() || 'images/PI.png';
             profile.bio = document.getElementById('profBio').value;
             profile.yearsExperience = parseInt(document.getElementById('profExp').value, 10) || 0;
             profile.completedProjects = parseInt(document.getElementById('profProjects').value, 10) || 0;
@@ -201,6 +203,10 @@
             profile.contact.email = document.getElementById('profEmail').value;
             profile.contact.phone = document.getElementById('profPhone').value;
             profile.contact.office = document.getElementById('profOffice').value;
+
+            try {
+                localStorage.setItem('portofweb_profile', JSON.stringify(profile));
+            } catch (err) {}
 
             saveContent('profile', profile, 'Profile updated successfully!');
         });

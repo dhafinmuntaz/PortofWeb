@@ -9,6 +9,7 @@
     const FALLBACK_PROFILE = {
         "name": "Dhafin Muntaz Rizqullah",
         "studioName": "MNTS DSGN",
+        "portrait": "images/PI.png",
         "title": "Junior Architect · Site Supervisor · Project Coordinator",
         "tagline": "Architect and project coordinator with more than four years of professional experience in drafting, BIM modeling, 3D visualization, retail design, and end-to-end project coordination.",
         "location": "Jakarta, Indonesia",
@@ -138,6 +139,12 @@
 
         const bioEl = document.getElementById('profileBio');
         if (bioEl) bioEl.textContent = profile.bio || '';
+
+        const portraitEl = document.getElementById('profilePortrait');
+        if (portraitEl) {
+            portraitEl.src = profile.portrait || 'images/PI.png';
+            portraitEl.alt = `${profile.name || 'Dhafin Muntaz Rizqullah'} — ${profile.title || 'Architect'}`;
+        }
 
         // Stats
         const expEl = document.getElementById('statExp');
