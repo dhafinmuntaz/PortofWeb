@@ -37,11 +37,22 @@
         <!-- Dynamically rendered via js/app.js -->
     </main>
 
+    <!-- Mobile-only End of Reel Action -->
+    <div class="mobile-reel-footer" id="mobileReelFooter">
+        <button type="button" class="btn-mobile-view-more" id="btnMobileViewMore">
+            View More Projects
+            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+        </button>
+    </div>
+
     <!-- View 2: Full Architectural Grid Gallery -->
     <section class="grid-gallery-container" id="gridGalleryContainer" aria-label="Architectural Grid Gallery">
         <div class="grid-gallery-inner">
             <div class="grid-gallery-header">
                 <div>
+                    <button type="button" class="btn-mobile-back-reel" id="btnMobileBackReel">&larr; Back to Kinetic Reel</button>
                     <h1>Selected Works</h1>
                     <p>Monolithic structures, spatial compression, and bespoke interior architecture crafted with raw material integrity.</p>
                 </div>
@@ -67,6 +78,6 @@
     <script src="js/supabase-config.js"></script>
     <script src="js/supabase.js"></script>
     <script src="js/navigation.js"></script>
-    <script src="js/app.js?v=9"></script>
+    <script src="js/app.js?v=10"></script>
 </body>
 </html>

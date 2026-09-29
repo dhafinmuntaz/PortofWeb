@@ -512,22 +512,41 @@
      * Setup View Switcher
      */
     function setupControls() {
-        if (btnReelView && btnGridView) {
-            btnReelView.addEventListener('click', () => {
-                btnReelView.classList.add('active');
-                btnGridView.classList.remove('active');
-                if (gridContainerEl) gridContainerEl.classList.remove('active');
-                if (trackEl) trackEl.style.display = 'flex';
-                document.body.classList.add('kinetic-view');
-            });
+        function switchToGridView() {
+            if (btnGridView) btnGridView.classList.add('active');
+            if (btnReelView) btnReelView.classList.remove('active');
+            if (trackEl) trackEl.style.display = 'none';
+            if (gridContainerEl) {
+                gridContainerEl.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            document.body.classList.remove('kinetic-view');
+        }
 
-            btnGridView.addEventListener('click', () => {
-                btnGridView.classList.add('active');
-                btnReelView.classList.remove('active');
-                if (trackEl) trackEl.style.display = 'none';
-                if (gridContainerEl) gridContainerEl.classList.add('active');
-                document.body.classList.remove('kinetic-view');
-            });
+        function switchToReelView() {
+            if (btnReelView) btnReelView.classList.add('active');
+            if (btnGridView) btnGridView.classList.remove('active');
+            if (gridContainerEl) gridContainerEl.classList.remove('active');
+            if (trackEl) {
+                trackEl.style.display = 'flex';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            document.body.classList.add('kinetic-view');
+        }
+
+        if (btnReelView && btnGridView) {
+            btnReelView.addEventListener('click', switchToReelView);
+            btnGridView.addEventListener('click', switchToGridView);
+        }
+
+        const btnMobileViewMore = document.getElementById('btnMobileViewMore');
+        if (btnMobileViewMore) {
+            btnMobileViewMore.addEventListener('click', switchToGridView);
+        }
+
+        const btnMobileBackReel = document.getElementById('btnMobileBackReel');
+        if (btnMobileBackReel) {
+            btnMobileBackReel.addEventListener('click', switchToReelView);
         }
     }
 
