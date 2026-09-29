@@ -220,6 +220,7 @@
             document.getElementById('fLocation').value = proj.location || '';
             document.getElementById('fArea').value = proj.area || '';
             document.getElementById('fClient').value = proj.client || '';
+            document.getElementById('fRole').value = proj.role || '';
             document.getElementById('fMaterials').value = proj.materials || '';
             document.getElementById('fCoverImage').value = proj.coverImage || '';
             document.getElementById('fGalleryImages').value = (proj.galleryImages || []).join(', ');
@@ -230,6 +231,7 @@
         } else {
             modalProjectTitle.textContent = 'Add New Project';
             document.getElementById('editProjectId').value = '';
+            document.getElementById('fRole').value = 'Lead Designer & Project Coordinator';
             document.getElementById('fYear').value = new Date().getFullYear();
             document.getElementById('fCoverImage').value = 'images/Project/Cesarino Puri/Cesarino Puri (1).png';
             const inKineticEl = document.getElementById('fInKinetic');
@@ -254,6 +256,7 @@
             const location = document.getElementById('fLocation').value.trim();
             const area = document.getElementById('fArea').value.trim();
             const client = document.getElementById('fClient').value.trim();
+            const role = document.getElementById('fRole').value.trim();
             const materials = document.getElementById('fMaterials').value.trim();
             const coverImage = document.getElementById('fCoverImage').value.trim();
             const galleryImagesStr = document.getElementById('fGalleryImages').value.trim();
@@ -283,6 +286,7 @@
                     proj.location = location;
                     proj.area = area;
                     proj.client = client;
+                    proj.role = role;
                     proj.materials = materials;
                     proj.coverImage = coverImage;
                     proj.galleryImages = galleryImages;
@@ -306,7 +310,7 @@
                     location: location,
                     area: area,
                     client: client,
-                    role: 'Lead Architect',
+                    role: role || 'Lead Architect',
                     materials: materials,
                     coverImage: coverImage,
                     galleryImages: galleryImages,

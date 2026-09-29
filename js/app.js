@@ -16,7 +16,7 @@
             "category": "Interior Design",
             "type": "Hospitality & Dining",
             "year": "2025",
-            "client": "Mr. N",
+            "client": "Mr.N",
             "role": "Team Project — Lead Interior Designer & Site Coordinator",
             "location": "Jakarta, Indonesia",
             "area": "228 sqm",
@@ -25,7 +25,11 @@
             "galleryImages": [
                 "images/Project/Cesarino Puri/Cesarino Puri (1).png",
                 "images/Project/Cesarino Puri/Cesarino Puri (2).png",
-                "images/Project/Cesarino Puri/Cesarino Puri (3).png"
+                "images/Project/Cesarino Puri/Cesarino Puri (3).png",
+                "images/Project/Cesarino Puri/Cesarino Puri (4).png",
+                "images/Project/Cesarino Puri/Cesarino Puri (5).png",
+                "images/Project/Cesarino Puri/Cesarino Puri (6).png",
+                "images/Project/Cesarino Puri/Cesarino Puri (7).png"
             ],
             "description": "A warm Italian dining atmosphere shaped by exposed brick arches, dark green detailing, natural timber, and layered ambient lighting.",
             "details": "Cesarino Puri is an Italian restaurant in Jakarta inspired by the warmth and character of traditional Italian dining. The interior combines exposed brick, warm timber, and soft ambient lighting to create an intimate and welcoming atmosphere.",
@@ -62,16 +66,21 @@
             "category": "Architecture",
             "type": "Vocational Education & Technology Campus",
             "year": "2024",
-            "client": "Final Year Project",
-            "role": "Architecture Student (Final Year Project)",
-            "location": "Cimahi, Indonesia",
-            "area": "3,148 sqm",
+            "client": "-",
+            "role": "Final Year Project",
+            "location": "Indonesia",
+            "area": "3148 sqm",
             "materials": "Exposed structural steel, aluminium composite panels, glass curtain walls, concrete, and neutral-toned architectural finishes",
             "coverImage": "images/Project/EVD SMK/EVD SMK (1).png",
             "galleryImages": [
                 "images/Project/EVD SMK/EVD SMK (1).png",
                 "images/Project/EVD SMK/EVD SMK (2).png",
-                "images/Project/EVD SMK/EVD SMK (3).png"
+                "images/Project/EVD SMK/EVD SMK (3).png",
+                "images/Project/EVD SMK/EVD SMK (4).png",
+                "images/Project/EVD SMK/EVD SMK (5).png",
+                "images/Project/EVD SMK/EVD SMK (6).png",
+                "images/Project/EVD SMK/EVD SMK (7).png",
+                "images/Project/EVD SMK/EVD SMK (8).png"
             ],
             "description": "A contemporary vocational campus organized around connected learning spaces, technical workshops, and landscaped courtyards to support hands-on education in electronic vehicle development.",
             "details": "EVD SMK is a modern vocational education campus in Cimahi dedicated to Electric Vehicle Development and technical learning. The campus combines academic, laboratory, workshop, sports, and communal facilities within a contemporary and highly connected educational environment.",
@@ -86,15 +95,17 @@
             "type": "Sports & Wellness Pavilion",
             "year": "2023",
             "client": "Geo Sports Club",
-            "role": "Team Project — 3D Drafter & Visualization",
+            "role": "Team Project - 3D Drafter & Visualization",
             "location": "Bandung, Indonesia",
-            "area": "±4,000 sqm",
+            "area": "±4000 sqm",
             "materials": "Exposed concrete, dark metal structure, glass curtain walls, timber flooring, perforated metal railings, and landscaped greenery",
             "coverImage": "images/Project/GEO GYMNAS/GEO GYMNAS (1).png",
             "galleryImages": [
                 "images/Project/GEO GYMNAS/GEO GYMNAS (1).png",
                 "images/Project/GEO GYMNAS/GEO GYMNAS (2).png",
-                "images/Project/GEO GYMNAS/GEO GYMNAS (3).png"
+                "images/Project/GEO GYMNAS/GEO GYMNAS (3).png",
+                "images/Project/GEO GYMNAS/GEO GYMNAS (4).png",
+                "images/Project/GEO GYMNAS/GEO GYMNAS (5).png"
             ],
             "description": "A contemporary public sports environment that integrates functional athletic spaces, flexible programming, natural light, and strong connections between indoor and outdoor areas.",
             "details": "GEO Gymnas – Bandung is a contemporary public sports facility designed as a multifunctional environment for athletic activities, recreation, and community use. Combining modern architectural forms with expansive sports halls, generous glazing, landscaped outdoor areas, and flexible spaces that support a variety of sporting activities.",
@@ -111,7 +122,7 @@
             "client": "Sour Sally Group",
             "role": "Lead Designer & Project Coordinator",
             "location": "Indonesia",
-            "area": "15–20 sqm",
+            "area": "15-20 sqm",
             "materials": "Pink illuminated acrylic, black laminate, LED lighting, digital display panels, graphic vinyl, and glossy accent finishes",
             "coverImage": "images/Project/JS/JS (1).png",
             "galleryImages": [
@@ -129,7 +140,7 @@
             "title": "Juicy Sally — Summarecon Mall Serpong",
             "spine": "Serpong",
             "category": "Architecture",
-            "type": "F&B Retail Unit",
+            "type": "F&B Retail",
             "year": "2026",
             "client": "Sour Sally Group",
             "role": "Lead Designer & Project Coordinator",
@@ -140,7 +151,9 @@
             "galleryImages": [
                 "images/Project/JS SMS/JS SMS (1).png",
                 "images/Project/JS SMS/JS SMS (2).png",
-                "images/Project/JS SMS/JS SMS (3).png"
+                "images/Project/JS SMS/JS SMS (3).png",
+                "images/Project/JS SMS/JS SMS (4).png",
+                "images/Project/JS SMS/JS SMS (5).png"
             ],
             "description": "A bold and immersive F&B retail unit that expresses Juicy Sally’s playful identity through vibrant graphics, integrated lighting, strong contrast, and a highly recognizable branded environment.",
             "details": "Juicy Sally – Summarecon Mall Serpong is a vibrant F&B retail unit developed for the Juicy Sally brand, translating its playful and energetic identity into a compact mall environment. The design combines bold pink graphics, black finishes, integrated LED lighting, and signature character elements to create a distinctive and highly visible customer-facing space.",
@@ -152,7 +165,7 @@
             "title": "Housing Complex Reimagine",
             "spine": "Housing",
             "category": "Architecture",
-            "type": "Residential Housing Complex",
+            "type": "Residential",
             "year": "2024",
             "client": "Private Client",
             "role": "3D Visualization",
@@ -163,7 +176,9 @@
             "galleryImages": [
                 "images/Project/KOMPLEK/KOMPLEK (1).png",
                 "images/Project/KOMPLEK/KOMPLEK (2).png",
-                "images/Project/KOMPLEK/KOMPLEK (3).png"
+                "images/Project/KOMPLEK/KOMPLEK (3).png",
+                "images/Project/KOMPLEK/KOMPLEK (4).png",
+                "images/Project/KOMPLEK/KOMPLEK (5).png"
             ],
             "description": "A warm contemporary residential environment combining functional compact living spaces with natural materials, tropical landscaping, and a consistent architectural language across the housing cluster.",
             "details": "Residential Housing Complex is a contemporary tropical housing development designed around a warm, modern residential character. The architecture combines pitched clay-tile roofs, natural stone, timber elements, and landscaped communal areas, creating a cohesive and comfortable environment across the housing units.",
