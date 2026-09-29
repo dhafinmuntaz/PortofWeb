@@ -100,7 +100,7 @@
     ],
     "description": "A contemporary public sports environment that integrates functional athletic spaces, flexible programming, natural light, and strong connections between indoor and outdoor areas.",
     "details": "GEO Gymnas – Bandung is a contemporary public sports facility designed as a multifunctional environment for athletic activities, recreation, and community use. Combining modern architectural forms with expansive sports halls, generous glazing, landscaped outdoor areas, and flexible spaces that support a variety of sporting activities.",
-    "inKinetic": true
+    "inKinetic": false
   },
   {
     "id": "proj-05",
@@ -123,7 +123,7 @@
     ],
     "description": "A bold and playful F&B booth that translates Juicy Sally’s youthful brand identity into a highly visible retail experience through vibrant color, graphic expression, integrated lighting, and distinctive character elements.",
     "details": "Juicy Sally – Sour Sally Group is a vibrant F&B kiosk concept designed around a bold, youthful, and playful visual identity. The booth combines vivid pink tones, black accents, illuminated graphics, and the signature Juicy Sally character to create a highly recognizable presence within a contemporary retail environment.",
-    "inKinetic": true
+    "inKinetic": false
   },
   {
     "id": "proj-06",
@@ -148,7 +148,7 @@
     ],
     "description": "A bold and immersive F&B retail unit that expresses Juicy Sally’s playful identity through vibrant graphics, integrated lighting, strong contrast, and a highly recognizable branded environment.",
     "details": "Juicy Sally – Summarecon Mall Serpong is a vibrant F&B retail unit developed for the Juicy Sally brand, translating its playful and energetic identity into a compact mall environment. The design combines bold pink graphics, black finishes, integrated LED lighting, and signature character elements to create a distinctive and highly visible customer-facing space.",
-    "inKinetic": true
+    "inKinetic": false
   },
   {
     "id": "proj-07",
@@ -173,7 +173,7 @@
     ],
     "description": "A warm contemporary residential environment combining functional compact living spaces with natural materials, tropical landscaping, and a consistent architectural language across the housing cluster.",
     "details": "Residential Housing Complex is a contemporary tropical housing development designed around a warm, modern residential character. The architecture combines pitched clay-tile roofs, natural stone, timber elements, and landscaped communal areas, creating a cohesive and comfortable environment across the housing units.",
-    "inKinetic": true
+    "inKinetic": false
   },
   {
     "id": "proj-08",
@@ -289,7 +289,7 @@
     ],
     "description": "A contemporary Sour Sally frozen yogurt kiosk designed with a bold lime green, black, and white visual identity. The compact layout integrates ordering, preparation, display, and customer seating into a cohesive branded environment.",
     "details": "To create a playful and highly recognizable retail experience that reflects Sour Sally’s energetic brand character. Curved forms, illuminated details, graphic patterns, and branded elements are used to enhance visibility and customer engagement.",
-    "inKinetic": false
+    "inKinetic": true
   },
   {
     "id": "proj-13",
@@ -313,7 +313,7 @@
     ],
     "description": "A Sour Sally frozen yogurt outlet designed as a compact branded retail space with an integrated service counter and customer seating. The interior combines dark metallic finishes with vibrant lime green accents, illuminated graphics, and playful brand elements.",
     "details": "To translate the Sour Sally brand identity into a strong and recognizable spatial experience. Graphic patterns, illuminated details, reflective surfaces, and branded elements create a playful yet contemporary atmosphere.",
-    "inKinetic": false
+    "inKinetic": true
   },
   {
     "id": "proj-14",
@@ -338,7 +338,7 @@
     ],
     "description": "A branded frozen yogurt outlet with an open layout combining service, display, and customer seating areas. The interior features a fresh green palette, greenery, and bold Sour Sally graphics.",
     "details": "To create a fresh, healthy, and contemporary retail atmosphere while maintaining a strong Sour Sally identity. The design combines greenery, illuminated details, stainless steel, and graphic elements to create a vibrant customer experience.",
-    "inKinetic": false
+    "inKinetic": true
   },
   {
     "id": "proj-15",
@@ -386,6 +386,6 @@
     ],
     "description": "A contemporary lifestyle and wellness-oriented commercial building designed around a strong architectural identity and a warm, earthy material palette. The project combines sculptural textured façades with extensive glazing, vertical terracotta elements, and a large articulated roof.",
     "details": "The design creates a distinctive yet approachable commercial environment through the contrast of soft sculptural forms and warm natural materials. Rounded plaster volumes frame large glazed openings, while terracotta brick/tile screens provide texture and solar filtering. The large dark metal roof unifies the building's different volumes and gives the project a strong overall silhouette.",
-    "inKinetic": false
+    "inKinetic": true
   }
 ]

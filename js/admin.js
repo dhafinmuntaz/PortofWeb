@@ -349,13 +349,28 @@
      * Persistence helpers
      */
     function saveToLocal() {
+        try {
+            localStorage.setItem('portofweb_projects', JSON.stringify(projects));
+        } catch (e) {
+            console.warn('localStorage write notice:', e);
+        }
         saveContent('projects', projects);
     }
 
     /**
-     * Attempt sync to local Python server if running
+     * Save to server and database
      */
     async function saveContent(key, data, message) {
+        try {
+            if (key === 'projects') {
+                fetch('/api/save-projects', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                }).catch(() => {});
+            }
+        } catch (e) {}
+
         try {
             await window.portofwebDb.save(key, data);
             if (message) showToast(message);

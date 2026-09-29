@@ -197,27 +197,48 @@
     const btnReelView = document.getElementById('btnReelView');
     const btnGridView = document.getElementById('btnGridView');
 
-    /** Load projects from data/projects.json first, with online Supabase and offline fallbacks. */
+    /** Load projects from localStorage, Supabase, or JSON fallback */
     async function loadProjects() {
         try {
-            const res = await fetch('data/projects.json?t=' + Date.now());
-            if (res.ok) {
-                projects = await res.json();
+            const cached = localStorage.getItem('portofweb_projects');
+            if (cached) {
+                projects = JSON.parse(cached);
                 renderAll();
-                return;
             }
+        } catch (e) {}
+
+        try {
             const online = await window.portofwebDb.load('projects');
-            if (online) {
+            if (online && Array.isArray(online) && online.length > 0) {
                 projects = online;
+                try {
+                    localStorage.setItem('portofweb_projects', JSON.stringify(online));
+                } catch (e) {}
                 renderAll();
                 return;
             }
         } catch (err) {
-            console.log('Direct fetch notice, using cached or fallback projects:', err);
+            console.log('Supabase load notice:', err);
         }
 
-        projects = FALLBACK_PROJECTS;
-        renderAll();
+        if (!projects || projects.length === 0) {
+            try {
+                const res = await fetch('data/projects.json?t=' + Date.now());
+                if (res.ok) {
+                    projects = await res.json();
+                    try {
+                        localStorage.setItem('portofweb_projects', JSON.stringify(projects));
+                    } catch (e) {}
+                    renderAll();
+                    return;
+                }
+            } catch (err) {
+                console.log('Direct fetch notice, using cached or fallback projects:', err);
+            }
+
+            projects = FALLBACK_PROJECTS;
+            renderAll();
+        }
     }
 
     /**
