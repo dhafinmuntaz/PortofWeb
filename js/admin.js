@@ -44,15 +44,20 @@
      * Load initial data
      */
     async function initData() {
-        try { projects = await window.portofwebDb.load('projects') || []; } catch (e) { projects = []; }
-        try { profile = await window.portofwebDb.load('profile') || {}; } catch (e) { profile = {}; }
-        if (!projects.length) {
-            const res = await fetch('data/projects.json');
+        try {
+            const res = await fetch('data/projects.json?t=' + Date.now());
             if (res.ok) projects = await res.json();
+        } catch (e) { projects = []; }
+        try {
+            const res = await fetch('data/profile.json?t=' + Date.now());
+            if (res.ok) profile = await res.json();
+        } catch (e) { profile = {}; }
+
+        if (!projects.length) {
+            try { projects = await window.portofwebDb.load('projects') || []; } catch (e) { projects = []; }
         }
         if (!profile.name) {
-            const res = await fetch('data/profile.json');
-            if (res.ok) profile = await res.json();
+            try { profile = await window.portofwebDb.load('profile') || {}; } catch (e) { profile = {}; }
         }
 
         renderProjectsTable();

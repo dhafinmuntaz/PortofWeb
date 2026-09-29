@@ -197,18 +197,18 @@
     const btnReelView = document.getElementById('btnReelView');
     const btnGridView = document.getElementById('btnGridView');
 
-    /** Load online data first, with JSON and local fallbacks for setup/offline use. */
+    /** Load projects from data/projects.json first, with online Supabase and offline fallbacks. */
     async function loadProjects() {
         try {
-            const online = await window.portofwebDb.load('projects');
-            if (online) {
-                projects = online;
-                renderAll();
-                return;
-            }
             const res = await fetch('data/projects.json?t=' + Date.now());
             if (res.ok) {
                 projects = await res.json();
+                renderAll();
+                return;
+            }
+            const online = await window.portofwebDb.load('projects');
+            if (online) {
+                projects = online;
                 renderAll();
                 return;
             }

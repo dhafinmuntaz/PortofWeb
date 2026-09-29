@@ -106,22 +106,23 @@
 
     async function loadProfile() {
         try {
+            const res = await fetch('data/profile.json?t=' + Date.now());
+            if (res.ok) {
+                profile = await res.json();
+                renderProfile();
+                return;
+            }
             const online = await window.portofwebDb.load('profile');
             if (online) {
                 profile = online;
                 renderProfile();
                 return;
             }
-            const res = await fetch('data/profile.json');
-            if (res.ok) {
-                profile = await res.json();
-            } else {
-                profile = FALLBACK_PROFILE;
-            }
         } catch (err) {
             profile = FALLBACK_PROFILE;
         }
 
+        profile = FALLBACK_PROFILE;
         renderProfile();
     }
 
